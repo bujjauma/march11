@@ -1,0 +1,16 @@
+pipeline {
+  agent { label 'test' }
+  triggers {
+        cron('* * * * *')
+    }
+  stages {
+      stage('clone repo') {
+          steps {
+              echo 'going to checkout from git'
+              git credentialsId: '2adc8bc8-7fd2-4e2b-bdbf-4fc8f0bc25dc', url: 'https://github.com/bujjauma/march11.git'
+              echo 'completed checkout from git'
+           }
+          }
+      }
+      
+  }
